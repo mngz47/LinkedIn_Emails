@@ -56,7 +56,7 @@ if(confirm('Send Information To Target Email')){
 var service_id = "gmail";
 var template_id = "template_t0TutJIb";
 template_params = {
-   "reply_to": 'mngz636@gmail.com',
+   "reply_to": e("links").value,
    "from_name": 'Specialist',
    "to_name": e('search_term').value,
    "message_html": e('mail').value
