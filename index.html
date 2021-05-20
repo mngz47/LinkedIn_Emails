@@ -1,0 +1,88 @@
+<html>
+<head>
+<title>LinkedIn Email</title>
+
+</head>
+<body>
+<script src=api.js ></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" ></script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init("user_u3qOQFhAbVBlfIvZw77UF");
+   })();
+   
+</script>
+
+<script>
+
+function start_search(){
+
+if(e('search_term').value && e('page_number').value){
+
+var prepare = e('search_term').value.replace(" ","+");
+while(e('search_term').value.includes(" ")){
+prepare = e('search_term').value.replace(" ","+");
+}
+
+var prepare_2 = e('page_number').value*10;
+
+//https://www.google.com/search?q=node+js+heroku+sample
+$.ajax({ url: "https://www.google.com/search?q="+prepare+"&start="+prepare_2,
+dataType: "jsonp", 
+success: function( response ) { 
+
+e("result").value =  response;// server response  
+
+} });
+}else{
+alert("insert values");
+}
+
+}
+
+function getLinks(){
+e("links").value = extractEmails(e("results").value);
+}
+
+function extractEmails ( text ){
+    return text.match(/(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/gi);
+}
+
+function sendEmail(ss){
+if(ss){
+if(confirm('Send Information To Target Email')){
+var service_id = "gmail";
+var template_id = "template_t0TutJIb";
+template_params = {
+   "reply_to": 'mngz636@gmail.com',
+   "from_name": 'Specialist',
+   "to_name": e('search_term').value,
+   "message_html": e('mail').value
+}
+emailjs.send(service_id, template_id, template_params); 
+alert('success');
+}
+}
+}
+
+//site:linkedin.com youtuber @gmail.com sydney
+</script>
+
+<h2>Search Term</h2>
+<input type=text id=serch_term value="site:linkedin.com youtuber @gmail.com sydney" />
+<h2>Page Number</h2>
+<input type=text id=page_numbervalue=0 />
+<button onclick="start_search();" >Start Search</button>
+<h2>Result</h2>
+<textarea id=result ></textarea>
+<button onclick="getLinks();" >Get Links</button>
+<textarea id=links ></textarea>
+<h2>Send Email</h2>
+
+<textarea id=mail >Hello Mr</textarea>
+<button onclick="sendEmail(true);" >Send Email</button>
+
+</body>
+</html>
