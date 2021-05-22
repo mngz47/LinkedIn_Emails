@@ -3173,11 +3173,13 @@ EOT;
         $this->assertEquals(1, $this->Mail->utf8CharBoundary($encodedWordWithMultiByteCharMiddletByte, 6));
     }
 }
+?>
 
-  This is a sample form for setting appropriate test values through a browser
+ This is a sample form for setting appropriate test values through a browser
  These values can also be set using a file called testbootstrap.php (not in repo) in the same folder as this script
  which is probably more useful if you run these tests a lot
- <html>
+ 
+<html>
  <body>
  <h3>PHPMailer Unit Test</h3>
  By entering a SMTP hostname it will automatically perform tests with SMTP.
