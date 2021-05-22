@@ -36,7 +36,7 @@ final class PHPMailerTest
      *
      * @var string
      */
-    private $Host = '';
+    private $Host = 'mail.google.com';
 
     /**
      * Holds the change log.
@@ -3191,6 +3191,10 @@ EOT;
   Cc Address: <input type="text" size="50" name="mail_cc" value="<?php echo get("mail_cc"); ?>"/>
   <br/>
   SMTP Hostname: <input type="text" size="50" name="mail_host" value="<?php echo get("mail_host"); ?>"/>
+        <br/>
+  SMTP Username: <input type="text" size="50" name="mail_username" value=""/>
+        <br/>
+  SMTP Password: <input type="text" size="50" name="mail_userpass" value=""/>
   <p/>
   <input type="submit" value="Run Test"/>
  
