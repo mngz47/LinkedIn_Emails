@@ -18,12 +18,11 @@ use PHPMailer\PHPMailer\OAuth;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\POP3;
 use PHPMailer\PHPMailer\SMTP;
-use Yoast\PHPUnitPolyfills\TestCases\TestCase;
 
 /**
  * PHPMailer - PHP email transport unit test class.
  */
-final class PHPMailerTest extends TestCase
+final class PHPMailerTest
 {
     /**
      * Holds the PHPMailer instance.
