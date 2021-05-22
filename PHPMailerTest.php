@@ -36,7 +36,7 @@ final class PHPMailerTest
      *
      * @var string
      */
-    private $Host = 'mail.google.com';
+    private $Host = 'smtp.google.com';
 
     /**
      * Holds the change log.
