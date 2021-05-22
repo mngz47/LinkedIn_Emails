@@ -3184,7 +3184,7 @@ EOT;
  <h3>PHPMailer Unit Test</h3>
  By entering a SMTP hostname it will automatically perform tests with SMTP.
  
-  <form name="phpmailer_unit" action=__FILE__ method="get">
+  <form name="phpmailer_unit" action=PHPMailerTest.php method="get">
   <input type="hidden" name="submitted" value="1"/>
   From Address: <input type="text" size="50" name="mail_from" />
   <br/>
